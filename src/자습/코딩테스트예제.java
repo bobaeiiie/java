@@ -1,6 +1,9 @@
 package 자습;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class 코딩테스트예제 {
     public static void main(String[] args) {
@@ -116,10 +119,46 @@ public class 코딩테스트예제 {
         // 11. 주어진 문자열에서 중복된 문자를 제거한 문자열을 반환하는 프로그램을 작성하세요.
         String text4 = "programming";
 
-        // 11. 주어진 문자열에서 중복된 문자를 제거한 문자열을 반환하는 프로그램을 작성하세요.
+        Set<Character> charSet = new LinkedHashSet<>();
+        // LinkedHashSet : 중복을 제거하고 입력된 순서를 유지함
 
+        for (char c : text4.toCharArray()) { // forEach
+            charSet.add(c);
+        }
 
+        StringBuilder result = new StringBuilder();
+        // 문자열을 효율적으로 연결하기 위해 StringBuilder 사용
+        for (char c : charSet) {
+            result.append(c);
+        }
 
+        System.out.println("11. " + result.toString());
+
+        // 12. 주어진 문자열에서 단어의 개수를 세는 프로그램을 작성하세요.
+        String text5 = "Hello World, this is a test.";
+
+        String[] words = text5.split(" ");
+        System.out.println("12. " + words.length);
+
+        // 13. 두 문자열의 공통 문자 찾기
+        String text6 = "apple";
+        String text7 = "grape";
+
+        Set<Character> set1 = new HashSet<>();
+        // HashSet : 중복을 제거하며 순서가 중요하지 않음
+        for (char c : text6.toCharArray()) {
+            set1.add(c);
+        }
+
+        Set<Character> commonChars = new HashSet<>();
+        // 두 문자열의 공통 문자를 저장하기 위해 사용
+        for (char c : text7.toCharArray()) {
+            if(set1.contains(c)) {
+                // set1에 현재 문자가 포함되어 있는지 확인
+                commonChars.add(c);
+            }
+        }
+        System.out.println("13. " + commonChars);
 
     }
 }
